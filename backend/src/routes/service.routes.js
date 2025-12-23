@@ -1,4 +1,6 @@
 import express from "express";
+import authMiddleware from "../middleware/auth.middleware.js";
+
 import {
   createService,
   getNearbyServices,
@@ -8,9 +10,10 @@ import {
 
 const router = express.Router();
 
-router.post("/", createService);
-router.get("/nearby", getNearbyServices);
-router.patch("/assign", assignProvider);
-router.patch("/complete", completeService);
+router.post("/", authMiddleware, createService);
+router.get("/nearby", authMiddleware, getNearbyServices);
+router.patch("/assign", authMiddleware, assignProvider);
+router.patch("/complete", authMiddleware, completeService);
+
 
 export default router;

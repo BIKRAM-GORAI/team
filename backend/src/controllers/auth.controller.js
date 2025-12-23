@@ -17,7 +17,10 @@ export const register = async (req, res) => {
       radius
     });
 
-    res.status(201).json(user);
+    // 🔒 remove password before sending response
+    const { password: _, ...safeUser } = user._doc;
+
+    res.status(201).json(safeUser);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -28,10 +31,14 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(401).json({ message: "Invalid credentials" });
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
@@ -39,7 +46,13 @@ export const login = async (req, res) => {
       { expiresIn: "7d" }
     );
 
-    res.json({ token, user });
+    // 🔒 remove password before sending response
+    const { password: _, ...safeUser } = user._doc;
+
+    res.json({
+      token,
+      user: safeUser
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
