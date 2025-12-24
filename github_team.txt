@@ -1,0 +1,131 @@
+# =====================================================
+# 👥 TEAM GIT WORKFLOW (SAFE & IDEAL)
+# =====================================================
+
+
+# -----------------------------------------------------
+# 🧠 RULE 0 (MOST IMPORTANT RULE FOR EVERY TEAM MEMBER)
+# -----------------------------------------------------
+
+# ALWAYS do a git pull BEFORE writing any code
+# ALWAYS do git status BEFORE commit & push
+
+
+# -----------------------------------------------------
+# 🔰 FIRST TIME (ONLY ONCE PER TEAM MEMBER)
+# -----------------------------------------------------
+
+# Clone the repository
+git clone https://github.com/username/repo-name.git
+
+# Go inside the project
+cd repo-name
+
+# Check connected remote
+git remote -v
+
+
+# -----------------------------------------------------
+# 🔁 DAILY WORKFLOW (EVERY DAY, EVERY TIME)
+# -----------------------------------------------------
+
+# 1️⃣ Check which branch you are on
+git branch --show-current
+
+# 2️⃣ Switch to main branch
+git checkout main
+
+# 3️⃣ Pull latest changes from GitHub
+git pull origin main
+
+# 4️⃣ Create a NEW feature branch (VERY IMPORTANT)
+# Each member should work on their OWN branch
+git checkout -b feature-branch-name
+
+# Example:
+# git checkout -b add-login-api
+# git checkout -b frontend-navbar
+# git checkout -b fix-auth-bug
+
+
+# -----------------------------------------------------
+# ✏️ WRITE YOUR CODE NOW
+# -----------------------------------------------------
+# Open VS Code
+# Write / change code
+# DO NOT work directly on main branch
+
+
+# -----------------------------------------------------
+# 📦 AFTER WRITING CODE
+# -----------------------------------------------------
+
+# 5️⃣ Check what changed
+git status
+
+# 6️⃣ Stage your changes
+git add .
+
+# 7️⃣ Commit with a clear message
+git commit -m "what you changed"
+
+# Example:
+# git commit -m "Add login API with validation"
+
+
+# -----------------------------------------------------
+# ⬆️ PUSH FEATURE BRANCH TO GITHUB
+# -----------------------------------------------------
+
+# First push of this branch
+git push -u origin feature-branch-name
+
+
+# -----------------------------------------------------
+# 🔀 MERGING FEATURE BRANCH INTO MAIN (TEAM LEAD / ONE PERSON)
+# -----------------------------------------------------
+
+# 8️⃣ Switch to main branch
+git checkout main
+
+# 9️⃣ Pull latest main (VERY IMPORTANT)
+git pull origin main
+
+# 🔟 Merge feature branch into main
+git merge feature-branch-name
+
+# 1️⃣1️⃣ Push updated main to GitHub
+git push origin main
+
+
+# -----------------------------------------------------
+# 🧹 CLEANUP (OPTIONAL BUT GOOD PRACTICE)
+# -----------------------------------------------------
+
+# Delete feature branch locally
+git branch -d feature-branch-name
+
+# Delete feature branch from GitHub
+git push origin --delete feature-branch-name
+
+
+# -----------------------------------------------------
+# 🧯 IF YOU FORGET TO PULL BEFORE CODING
+# -----------------------------------------------------
+
+# Save your work temporarily
+git stash
+
+# Pull latest changes
+git pull origin main
+
+# Bring your changes back
+git stash pop
+
+
+# -----------------------------------------------------
+# 🚨 IF YOU ARE CONFUSED AT ANY POINT
+# -----------------------------------------------------
+
+# THIS COMMAND ALWAYS TELLS THE TRUTH
+git status

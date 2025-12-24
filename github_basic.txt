@@ -1,0 +1,158 @@
+# =====================================================
+# 🧠 GIT DAILY WORKFLOW – SIMPLE & SAFE (COPY-PASTE)
+# =====================================================
+
+
+# -----------------------------------------------------
+# 🔍 BASIC CHECK COMMANDS (USE ANYTIME)
+# -----------------------------------------------------
+
+# Check which branch you are currently on
+git branch --show-current
+
+# OR (shows all branches, current one marked with *)
+git branch
+
+# Check the current status of your code
+# (modified files, staged files, untracked files, ahead/behind)
+git status
+
+# See commit history in short form
+git log --oneline
+
+
+# -----------------------------------------------------
+# 🚀 BEFORE YOU START CODING (VERY IMPORTANT)
+# -----------------------------------------------------
+
+# 1. Check which branch you are on
+git branch --show-current
+
+# 2. Pull latest changes from remote
+# (prevents merge conflicts)
+git pull
+
+# 3. Confirm everything is clean
+git status
+
+
+# -----------------------------------------------------
+# ✏️ AFTER YOU WRITE CODE
+# -----------------------------------------------------
+
+# Check what files changed
+git status
+
+# See exact code changes (line by line)
+git diff
+
+
+# -----------------------------------------------------
+# 📦 STAGING CHANGES
+# -----------------------------------------------------
+
+# Add a specific file to staging
+git add filename.ext
+
+# Add ALL changed files to staging
+git add .
+
+
+# -----------------------------------------------------
+# 📝 COMMITTING CHANGES
+# -----------------------------------------------------
+
+# Commit staged changes with a message
+git commit -m "clear and meaningful commit message"
+
+# Example:
+# git commit -m "Add login API and validation"
+
+
+# -----------------------------------------------------
+# ⬆️ PUSHING CODE TO GITHUB
+# -----------------------------------------------------
+
+# Push current branch to remote
+git push
+
+# Push a specific branch
+git push origin branch-name
+
+# Push a new branch for the first time
+git push -u origin branch-name
+
+
+# -----------------------------------------------------
+# 🔁 SAFE DAILY WORKFLOW (MEMORIZE THIS)
+# -----------------------------------------------------
+
+# Check branch
+git branch --show-current
+
+# Pull latest changes
+git pull
+
+# Check status
+git status
+
+# ---- WRITE YOUR CODE HERE ----
+
+# Check status again
+git status
+
+# Stage all changes
+git add .
+
+# Commit changes
+git commit -m "your message"
+
+# Push to GitHub
+git push
+
+
+# -----------------------------------------------------
+# 🌿 BRANCH MANAGEMENT
+# -----------------------------------------------------
+
+# Create a new branch and switch to it
+git checkout -b new-branch-name
+
+# Switch to an existing branch
+git checkout branch-name
+
+# (New Git way)
+git switch branch-name
+
+
+# -----------------------------------------------------
+# 🧯 WHEN YOU FORGET TO PULL BUT ALREADY EDITED CODE
+# -----------------------------------------------------
+
+# Save changes temporarily
+git stash
+
+# Pull latest code
+git pull
+
+# Bring your changes back
+git stash pop
+
+
+# -----------------------------------------------------
+# ❌ DISCARD CHANGES (BE CAREFUL)
+# -----------------------------------------------------
+
+# Discard changes in a specific file
+git checkout -- filename.ext
+
+# Discard ALL unstaged changes
+git restore .
+
+
+# -----------------------------------------------------
+# 🧠 MOST IMPORTANT RULE
+# -----------------------------------------------------
+
+# If you are confused at ANY time, run:
+git status
