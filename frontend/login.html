@@ -1,19 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<h2>Login</h2>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>Welcome Back 👋</h2>
+      <p class="subtitle">Login to continue</p>
 
-<form id="loginForm">
-  <input type="email" id="email" placeholder="Email" required />
-  <input type="password" id="password" placeholder="Password" required />
-  <button type="submit">Login</button>
-</form>
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="email" id="email" required />
+          <label>Email</label>
+        </div>
 
-<script type="module" src="js/auth.js"></script>
+        <div class="input-group">
+          <input type="password" id="password" required />
+          <label>Password</label>
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <p class="footer-text">
+        Don’t have an account? <a href="#">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>
+<style>
+  /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Background */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Card */
+.login-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Title */
+.login-card h2 {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+/* Input fields */
+.input-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: #999;
+  font-size: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s;
+  background: #fff;
+  padding: 0 5px;
+}
+
+/* Floating label */
+.input-group input:focus,
+.input-group input:valid {
+  border-color: #667eea;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -8px;
+  font-size: 12px;
+  color: #667eea;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-text a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
