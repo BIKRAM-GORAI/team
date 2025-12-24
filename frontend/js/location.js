@@ -51,3 +51,33 @@ document.getElementById("saveLocation").addEventListener("click", async () => {
     alert(err.message);
   }
 });
+
+
+// Auto-detect current location
+document.getElementById("detectLocation").addEventListener("click", () => {
+  if (!navigator.geolocation) {
+    alert("Geolocation not supported by your browser");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      selectedLatLng = { lat, lng };
+
+      map.setView([lat, lng], 15);
+
+      if (marker) {
+        map.removeLayer(marker);
+      }
+
+      marker = L.marker([lat, lng]).addTo(map);
+    },
+    () => {
+      alert("Unable to fetch your location");
+    }
+  );
+});
+

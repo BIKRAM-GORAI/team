@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Place Bid</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+<h2>Place Your Bid</h2>
+
+<form id="bidForm">
+  <input
+    type="number"
+    id="price"
+    placeholder="Bid Price"
+    required
+  />
+
+  <input
+    type="text"
+    id="estimatedTime"
+    placeholder="Estimated Time (e.g. 2 hours)"
+    required
+  />
+
+  <textarea
+    id="message"
+    placeholder="Message to customer (optional)"
+  ></textarea>
+
+  <button type="submit">Submit Bid</button>
+</form>
+
+<br>
+<button onclick="goBack()">⬅ Back to Nearby Jobs</button>
+
+<script type="module" src="../js/provider.js"></script>
+</body>
+</html>
