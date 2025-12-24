@@ -1,18 +1,36 @@
 import ServiceRequest from "../models/ServiceRequest.model.js";
 
+// CREATE SERVICE (Customer)
 export const createService = async (req, res) => {
   try {
-    const service = await ServiceRequest.create(req.body);
+    const service = await ServiceRequest.create({
+      ...req.body,
+      customerId: req.user.id   // ensure service belongs to logged-in user
+    });
+
     res.status(201).json(service);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-export const getNearbyServices = async (req, res) => {
-  const { lng, lat, radius } = req.query;
-
+// GET SERVICES
+// 1️⃣ If ?mine=true → return customer's own services
+// 2️⃣ Else → return nearby services (provider use)
+export const getServices = async (req, res) => {
   try {
+    // CUSTOMER: get own services
+    if (req.query.mine === "true") {
+      const services = await ServiceRequest.find({
+        customerId: req.user.id
+      }).sort({ createdAt: -1 });
+
+      return res.json(services);
+    }
+
+    // PROVIDER: get nearby services
+    const { lng, lat, radius } = req.query;
+
     const services = await ServiceRequest.find({
       status: "OPEN",
       location: {
@@ -32,6 +50,7 @@ export const getNearbyServices = async (req, res) => {
   }
 };
 
+// ASSIGN PROVIDER (Customer)
 export const assignProvider = async (req, res) => {
   const { serviceId, providerId } = req.body;
 
@@ -51,6 +70,7 @@ export const assignProvider = async (req, res) => {
   }
 };
 
+// COMPLETE SERVICE
 export const completeService = async (req, res) => {
   const { serviceId } = req.body;
 

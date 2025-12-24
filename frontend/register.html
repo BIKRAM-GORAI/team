@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<h2>Register</h2>
+
+<form id="registerForm">
+  <input type="text" id="name" placeholder="Name" required />
+  <input type="email" id="email" placeholder="Email" required />
+  <input type="password" id="password" placeholder="Password" required />
+
+  <select id="role" required>
+    <option value="">Select Role</option>
+    <option value="customer">Customer</option>
+    <option value="provider">Provider</option>
+  </select>
+
+  <button type="submit">Register</button>
+</form>
+
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>
