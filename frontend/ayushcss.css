@@ -1,39 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Register</title>
-
-  <!-- CONNECTED CSS -->
-  <!-- <link rel="stylesheet" href="ayushcss.css"> -->
-</head>
-<body>
-
-  <form id="registerForm">
-    <h2>Create Account</h2>
-
-    <input type="text" id="name" placeholder="Full Name" required />
-
-    <input type="email" id="email" placeholder="Email Address" required />
-
-    <input type="password" id="password" placeholder="Password" required />
-
-    <select id="role" required>
-      <option value="">Select Role</option>
-      <option value="customer">Customer</option>
-      <option value="provider">Service Provider</option>
-    </select>
-
-    <button type="submit">Register</button>
-  </form>
-
-  <!-- CONNECTED JS -->
-  <script type="module" src="js/auth.js"></script>
-</body>
-</html>
-<style>
-  /* Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -111,5 +77,3 @@ button:hover {
     padding: 2rem;
   }
 }
-
-</style>
