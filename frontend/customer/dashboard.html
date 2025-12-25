@@ -18,3 +18,155 @@
 <script type="module" src="../js/bids.js"></script>
 </body>
 </html>
+<style>
+  /* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ================= LAYOUT ================= */
+body {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 32px;
+  color: #1f2937;
+}
+
+/* Page container feel */
+body > * {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= HEADINGS ================= */
+h2 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+h3 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* ================= PRIMARY BUTTON ================= */
+button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= SERVICES GRID ================= */
+#myServices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Service card */
+#myServices > div {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+#myServices > div:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Card text */
+#myServices h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+#myServices p {
+  font-size: 0.92rem;
+  color: #6b7280;
+  margin-bottom: 14px;
+}
+
+/* Card button */
+#myServices button {
+  width: 100%;
+}
+
+/* ================= BIDS PAGE ================= */
+#bids {
+  max-width: 720px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Bid card */
+#bids > div {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Bid info */
+#bids p {
+  font-size: 0.92rem;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+#bids strong {
+  color: #111827;
+}
+
+/* Accept button */
+#bids button {
+  margin-top: 10px;
+  background: #16a34a;
+}
+
+#bids button:hover {
+  background: #15803d;
+}
+
+/* ================= EMPTY STATES ================= */
+#myServices p,
+#bids p:only-child {
+  color: #9ca3af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 640px) {
+  body {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+</style>
