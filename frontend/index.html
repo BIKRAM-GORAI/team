@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Page background same as login */
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    /* Container */
+    .welcome-container {
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    /* Card */
+    .welcome-card {
+      background: #ffffff;
+      padding: 40px 35px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    /* Title */
+    .welcome-card h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 1.9rem;
+    }
+
+    .welcome-card p {
+      color: #777;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    /* Buttons */
+    .welcome-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .welcome-actions a {
+      text-decoration: none;
+    }
+
+    .welcome-actions button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .welcome-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Secondary text */
+    .footer-text {
+      margin-top: 22px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .footer-text a {
+      color: #667eea;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animation (same as login) */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="welcome-container">
+    <div class="welcome-card">
+      <h1>Welcome</h1>
+      <p>
+        Connect with trusted local service providers or offer your services
+        within your neighborhood — fast and reliable.
+      </p>
+
+      <div class="welcome-actions">
+        <a href="login.html">
+          <button>Login</button>
+        </a>
+
+        <a href="register.html">
+          <button>Create Account</button>
+        </a>
+      </div>
+
+      <div class="footer-text">
+        New here?
+        <a href="register.html">Create an account</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
