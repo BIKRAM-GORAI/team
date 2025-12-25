@@ -1,31 +1,30 @@
-
-
 import { apiRequest } from "./api.js";
 
 // Navigation
 window.goToNearbyJobs = () => {
-  window.location.href = "nearby-jobs.html";
+  window.location.href = "nearby-jobs.html"; //allows calling gotoNearbyJobs function from html file
 };
 
 // Load nearby jobs
-const jobsDiv = document.getElementById("jobs");
+const jobsDiv = document.getElementById("jobs"); //selects the div with id jobs to display nearby jobs
 if (jobsDiv) {
-  loadNearbyJobs();
+  loadNearbyJobs(); //prevents loading nearby jobs if jobsDiv is not present
 }
 
 async function loadNearbyJobs() {
+  //declaration of loadNearbyJobs function
   try {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("user")); //retrieves user data from local storage//converts stringified user data back to object
 
-    const lng = user.location.coordinates[0];
+    const lng = user.location.coordinates[0]; //gets the data from the object
     const lat = user.location.coordinates[1];
     const radius = user.radius || 5;
 
     const jobs = await apiRequest(
       `/service?lng=${lng}&lat=${lat}&radius=${radius}`
-    );
+    );//sends a get request to backend to fetch nearby jobs and passes radius and co ordinated as query parameterrs
 
-    jobsDiv.innerHTML = "";
+    jobsDiv.innerHTML = "";//removes old content from jobsDiv
 
     if (jobs.length === 0) {
       jobsDiv.innerHTML = "<p>No nearby jobs found.</p>";
@@ -54,8 +53,6 @@ window.placeBid = (serviceId) => {
   window.location.href = "place-bid.html";
 };
 
-
-
 // PLACE BID
 const bidForm = document.getElementById("bidForm");
 if (bidForm) {
@@ -70,7 +67,7 @@ if (bidForm) {
       providerId: user._id,
       price: document.getElementById("price").value,
       estimatedTime: document.getElementById("estimatedTime").value,
-      message: document.getElementById("message").value
+      message: document.getElementById("message").value,
     };
 
     try {
@@ -87,4 +84,3 @@ if (bidForm) {
 window.goBack = () => {
   window.location.href = "nearby-jobs.html";
 };
-
