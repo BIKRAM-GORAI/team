@@ -160,3 +160,8 @@ window.addReview = (serviceId, providerId) => {
 
   window.location.href = "rate.html";
 };
+
+window.updateLocation = () => {
+  window.location.href = "../location.html";
+};
+
