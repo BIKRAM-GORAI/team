@@ -4,7 +4,8 @@ import {
   createService,
   getServices,
   assignProvider,
-  completeService
+  completeService,
+  getProviderActiveJob
 } from "../controllers/service.controller.js";
 
 const router = express.Router();
@@ -16,5 +17,6 @@ router.get("/", authMiddleware, getServices);
 
 router.patch("/assign", authMiddleware, assignProvider);
 router.patch("/complete", authMiddleware, completeService);
+router.get("/active", authMiddleware, getProviderActiveJob);
 
 export default router;

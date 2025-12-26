@@ -4,53 +4,58 @@ const serviceRequestSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true
+      required: true,
     },
 
     description: {
       type: String,
-      required: true
+      required: true,
     },
 
     serviceType: {
       type: String,
-      required: true
+      required: true,
     },
 
     budget: {
       type: Number,
-      required: true
+      required: true,
     },
 
     customerId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true
+      required: true,
     },
 
     location: {
       type: {
         type: String,
         enum: ["Point"],
-        default: "Point"
+        default: "Point",
       },
       coordinates: {
         type: [Number], // [longitude, latitude]
-        required: true
-      }
+        required: true,
+      },
     },
 
     status: {
       type: String,
       enum: ["OPEN", "IN_PROGRESS", "COMPLETED"],
-      default: "OPEN"
+      default: "OPEN",
     },
 
     assignedProvider: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      default: null
-    }
+      default: null,
+    },
+
+    reviewGiven: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

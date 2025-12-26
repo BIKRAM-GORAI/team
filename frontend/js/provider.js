@@ -22,9 +22,9 @@ async function loadNearbyJobs() {
 
     const jobs = await apiRequest(
       `/service?lng=${lng}&lat=${lat}&radius=${radius}`
-    );//sends a get request to backend to fetch nearby jobs and passes radius and co ordinated as query parameterrs
+    ); //sends a get request to backend to fetch nearby jobs and passes radius and co ordinated as query parameterrs
 
-    jobsDiv.innerHTML = "";//removes old content from jobsDiv
+    jobsDiv.innerHTML = ""; //removes old content from jobsDiv
 
     if (jobs.length === 0) {
       jobsDiv.innerHTML = "<p>No nearby jobs found.</p>";
@@ -83,4 +83,56 @@ if (bidForm) {
 // Back button
 window.goBack = () => {
   window.location.href = "nearby-jobs.html";
+};
+
+// Load active job (if any)
+const activeJobDiv = document.getElementById("activeJob");
+if (activeJobDiv) {
+  loadActiveJob();
+}
+
+async function loadActiveJob() {
+  try {
+    const job = await apiRequest("/service/active");
+
+    if (!job) {
+      activeJobDiv.innerHTML = "<p>No active job.</p>";
+      return;
+    }
+
+    // activeJobDiv.innerHTML = `
+    //   <h4>${job.title}</h4>
+    //   <p>Customer: ${job.customerId.name}</p>
+    //   <button onclick="viewCustomerLocation(
+    //     ${job.customerId.location.coordinates[1]},
+    //     ${job.customerId.location.coordinates[0]}
+    //   )">
+    //     View Customer Location
+    //   </button>
+    // `;
+    activeJobDiv.innerHTML = `
+  <h4>${job.title}</h4>
+  <p>Customer: ${job.customerId.name}</p>
+  <button onclick="viewCustomerLocation(
+    ${job.assignedProvider.location.coordinates[1]},
+    ${job.assignedProvider.location.coordinates[0]},
+    ${job.customerId.location.coordinates[1]},
+    ${job.customerId.location.coordinates[0]}
+  )">
+    View Customer Location
+  </button>
+`;
+  } catch (err) {
+    activeJobDiv.innerHTML = "<p>No active job.</p>";
+  }
+}
+
+window.viewCustomerLocation = (
+  providerLat,
+  providerLng,
+  customerLat,
+  customerLng
+) => {
+  const mapUrl = `https://www.google.com/maps/dir/${providerLat},${providerLng}/${customerLat},${customerLng}`;
+  window.open(mapUrl, "_blank");
 };
