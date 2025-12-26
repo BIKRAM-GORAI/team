@@ -54,3 +54,21 @@ async function loadMyServices() {
     alert(err.message);
   }
 }
+
+
+
+window.finishJob = async (serviceId) => {
+  const confirmClose = confirm("Are you sure the job is completed?");
+  if (!confirmClose) return;
+
+  try {
+    await apiRequest("/service/complete", "PATCH", {
+      serviceId
+    });
+
+    alert("Job marked as completed");
+    window.location.reload();
+  } catch (err) {
+    alert(err.message);
+  }
+};

@@ -8,7 +8,7 @@ let selectedLatLng = null;
 map = L.map("map").setView([20.5937, 78.9629], 5); // India default
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "© OpenStreetMap"
+  attribution: "© OpenStreetMap",
 }).addTo(map);
 
 // Click to place marker
@@ -37,10 +37,18 @@ document.getElementById("saveLocation").addEventListener("click", async () => {
       userId: user._id,
       location: {
         type: "Point",
-        coordinates: [selectedLatLng.lng, selectedLatLng.lat]
+        coordinates: [selectedLatLng.lng, selectedLatLng.lat],
       },
-      radius
+      radius,
     });
+    // 🔄 Update localStorage user object
+    user.location = {
+      type: "Point",
+      coordinates: [selectedLatLng.lng, selectedLatLng.lat],
+    };
+    user.radius = radius;
+
+    localStorage.setItem("user", JSON.stringify(user));
 
     if (user.role === "customer") {
       window.location.href = "customer/dashboard.html";
@@ -51,7 +59,6 @@ document.getElementById("saveLocation").addEventListener("click", async () => {
     alert(err.message);
   }
 });
-
 
 // Auto-detect current location
 document.getElementById("detectLocation").addEventListener("click", () => {
@@ -80,4 +87,3 @@ document.getElementById("detectLocation").addEventListener("click", () => {
     }
   );
 });
-
