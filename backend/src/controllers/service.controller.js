@@ -88,20 +88,6 @@ export const completeService = async (req, res) => {
 };
 
 
-// export const getProviderActiveJob = async (req, res) => {
-//   try {
-//     const service = await ServiceRequest.findOne({
-//       assignedProvider: req.user.id,
-//       status: "IN_PROGRESS"
-//     })
-//       .populate("customerId", "name location")
-//       .populate("assignedProvider", "location"); // 🔥 ADD THIS
-
-//     res.json(service);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
 
 export const getProviderActiveJob = async (req, res) => {
   try {
