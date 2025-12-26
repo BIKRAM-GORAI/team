@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Provider Dashboard</title>
-  <link rel="stylesheet" href="../css/dashboard.css">
-</head>
-<body>
-<div class="container">
-<h2>Provider Dashboard</h2>
+  <head>
+    <title>Provider Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Provider Dashboard</h2>
 
-<p>Welcome! Find service requests near you.</p>
+      <p>Welcome! Find service requests near you.</p>
 
-<button onclick="goToNearbyJobs()" class="btn">View Nearby Jobs</button>
-</div>
+      <button onclick="goToNearbyJobs()" class="btn">View Nearby Jobs</button>
+    </div>
 
-<script type="module" src="../js/provider.js"></script>
-</body>
+    <script type="module" src="../js/provider.js"></script>
+  </body>
 </html>
 <style>
-  *{
-    m=
+  * {
+    margin: 0;
+    padding: 0;
+    background-color: #D8C9A7;
   }
-.container
-{
-  align-items: center;
- position:relative;
-  top:50px;
-  text-align: center;
+  h2{
+    font-weight:bold ;
+    padding: 30px;
+        background-color: rgb(100, 100, 175);
+  }
+  p{
+    padding: 30px;
+        background-color: rgb(100, 100, 175);
+  }
+  .container {
+    align-items: center;
+    position: relative;
+    top:50%;
+    width: 40vw;
+    height: 60vh;
+  left: 50%;
+    border: 3px solid black;
+    border-radius: 10px;
+       
+    text-align: center;
+    background-color: rgb(100, 100, 175);
+    transform: translate(-50%,30%);
+  }
+
+  .btn {
+    background-color: #1C4D8D;
+    border: none;
+    color: #0c0f11;
+    padding: 15px 32px;
+    text-align: center;
+
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 12px;
+    background-color: rgb(221, 221, 206);
+  }
+  .btn:hover {
+ background-color: #819b41;
+
 }
-.btn{
-  background-color: #667eea;
-}
-  </style>
+</style>
