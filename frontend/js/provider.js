@@ -91,6 +91,42 @@ if (activeJobDiv) {
   loadActiveJob();
 }
 
+// async function loadActiveJob() {
+//   try {
+//     const job = await apiRequest("/service/active");
+
+//     if (!job) {
+//       activeJobDiv.innerHTML = "<p>No active job.</p>";
+//       return;
+//     }
+
+//     // activeJobDiv.innerHTML = `
+//     //   <h4>${job.title}</h4>
+//     //   <p>Customer: ${job.customerId.name}</p>
+//     //   <button onclick="viewCustomerLocation(
+//     //     ${job.customerId.location.coordinates[1]},
+//     //     ${job.customerId.location.coordinates[0]}
+//     //   )">
+//     //     View Customer Location
+//     //   </button>
+//     // `;
+//     activeJobDiv.innerHTML = `
+//   <h4>${job.title}</h4>
+//   <p>Customer: ${job.customerId.name}</p>
+//   <button onclick="viewCustomerLocation(
+//     ${job.assignedProvider.location.coordinates[1]},
+//     ${job.assignedProvider.location.coordinates[0]},
+//     ${job.customerId.location.coordinates[1]},
+//     ${job.customerId.location.coordinates[0]}
+//   )">
+//     View Customer Location
+//   </button>
+// `;
+//   } catch (err) {
+//     activeJobDiv.innerHTML = "<p>No active job.</p>";
+//   }
+// }
+
 async function loadActiveJob() {
   try {
     const job = await apiRequest("/service/active");
@@ -100,39 +136,52 @@ async function loadActiveJob() {
       return;
     }
 
-    // activeJobDiv.innerHTML = `
-    //   <h4>${job.title}</h4>
-    //   <p>Customer: ${job.customerId.name}</p>
-    //   <button onclick="viewCustomerLocation(
-    //     ${job.customerId.location.coordinates[1]},
-    //     ${job.customerId.location.coordinates[0]}
-    //   )">
-    //     View Customer Location
-    //   </button>
-    // `;
+    // 🔥 provider = logged in user
+    const provider = JSON.parse(localStorage.getItem("user"));
+
+    const providerLat = provider.location.coordinates[1];
+    const providerLng = provider.location.coordinates[0];
+
+    const customerLat = job.customerId.location.coordinates[1];
+    const customerLng = job.customerId.location.coordinates[0];
+
     activeJobDiv.innerHTML = `
-  <h4>${job.title}</h4>
-  <p>Customer: ${job.customerId.name}</p>
-  <button onclick="viewCustomerLocation(
-    ${job.assignedProvider.location.coordinates[1]},
-    ${job.assignedProvider.location.coordinates[0]},
-    ${job.customerId.location.coordinates[1]},
-    ${job.customerId.location.coordinates[0]}
-  )">
-    View Customer Location
-  </button>
-`;
+      <h4>${job.title}</h4>
+      <p>Customer: ${job.customerId.name}</p>
+      <button onclick="openRoute(
+        ${providerLat},
+        ${providerLng},
+        ${customerLat},
+        ${customerLng}
+      )">
+        View Customer Location
+      </button>
+    `;
   } catch (err) {
     activeJobDiv.innerHTML = "<p>No active job.</p>";
   }
 }
 
-window.viewCustomerLocation = (
+
+// window.viewCustomerLocation = (
+//   providerLat,
+//   providerLng,
+//   customerLat,
+//   customerLng
+// ) => {
+//   const mapUrl = `https://www.google.com/maps/dir/${providerLat},${providerLng}/${customerLat},${customerLng}`;
+//   window.open(mapUrl, "_blank");
+// };
+
+window.openRoute = (
   providerLat,
   providerLng,
   customerLat,
   customerLng
 ) => {
-  const mapUrl = `https://www.google.com/maps/dir/${providerLat},${providerLng}/${customerLat},${customerLng}`;
-  window.open(mapUrl, "_blank");
+  console.log("PROVIDER:", providerLat, providerLng);
+  console.log("CUSTOMER:", customerLat, customerLng);
+
+  const url = `https://www.google.com/maps/dir/${providerLat},${providerLng}/${customerLat},${customerLng}`;
+  window.open(url, "_blank");
 };

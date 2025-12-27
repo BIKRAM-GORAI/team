@@ -63,11 +63,14 @@ export const assignProvider = async (req, res) => {
       },
       { new: true }
     );
+    
 
     res.json(service);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+  
+
 };
 
 // COMPLETE SERVICE
