@@ -1,0 +1,101 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page background */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main container */
+.container {
+  width: 90%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Page title */
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2a5298;
+}
+
+/* Jobs wrapper */
+#jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual job card */
+#jobs > div {
+  background: #f7f9fc;
+  border-left: 5px solid #2a5298;
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#jobs > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Job title */
+#jobs h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Job details */
+#jobs p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* Bid button */
+#jobs button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #2a5298;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#jobs button:hover {
+  background: #1e3c72;
+}
+
+/* Divider */
+#jobs hr {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 18px;
+  }
+
+  #jobs h4 {
+    font-size: 16px;
+  }
+}
