@@ -1,0 +1,98 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page background */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+}
+
+/* Page title */
+h2 {
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+/* Bids container */
+#bids {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual bid card */
+#bids > div {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+#bids > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+}
+
+/* Bid text */
+#bids p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* Strong labels */
+#bids strong {
+  color: #2a5298;
+}
+
+/* Action buttons inside bids (if any) */
+#bids button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #2a5298;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#bids button:hover {
+  background: #1e3c72;
+}
+
+/* Back button */
+button[onclick="goBack()"] {
+  margin-top: 25px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+button[onclick="goBack()"]:hover {
+  color: #dbe4ff;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #bids > div {
+    padding: 15px;
+  }
+}
