@@ -1,0 +1,100 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page background */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Page title */
+h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Form container */
+#bidForm {
+  width: 90%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs & textarea */
+#bidForm input,
+#bidForm textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#bidForm textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+/* Focus effect */
+#bidForm input:focus,
+#bidForm textarea:focus {
+  border-color: #2a5298;
+  box-shadow: 0 0 0 2px rgba(42, 82, 152, 0.2);
+}
+
+/* Submit button */
+#bidForm button {
+  padding: 12px;
+  background: #2a5298;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#bidForm button:hover {
+  background: #1e3c72;
+  transform: translateY(-1px);
+}
+
+/* Back button */
+button[onclick="goBack()"] {
+  margin-top: 20px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+button[onclick="goBack()"]:hover {
+  color: #dbe4ff;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #bidForm {
+    padding: 20px;
+  }
+}

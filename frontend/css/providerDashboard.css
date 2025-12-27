@@ -1,49 +1,73 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    background-color: #D8C9A7;
-  }
-  h2{
-    font-weight:bold ;
-    padding: 30px;
-        background-color: rgb(100, 100, 175);
-  }
-  p{
-    padding: 30px;
-        background-color: rgb(100, 100, 175);
-  }
+/* Page background */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dashboard container */
+.container {
+  background: #ffffff;
+  width: 90%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Title */
+.container h2 {
+  color: #2a5298;
+  margin-bottom: 12px;
+}
+
+/* Subtitle text */
+.container p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+/* Primary button */
+.btn {
+  padding: 12px 22px;
+  background: #2a5298;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Button hover */
+.btn:hover {
+  background: #1e3c72;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Button active */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
   .container {
-    align-items: center;
-    position: relative;
-    top:50%;
-    width: 40vw;
-    height: 60vh;
-  left: 50%;
-    border: 3px solid black;
-    border-radius: 10px;
-       
-    text-align: center;
-    background-color: rgb(100, 100, 175);
-    transform: translate(-50%,30%);
+    padding: 24px;
   }
-
-  .btn {
-    background-color: #1C4D8D;
-    border: none;
-    color: #0c0f11;
-    padding: 15px 32px;
-    text-align: center;
-
-    display: inline-block;
-    font-size: 30px;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 12px;
-    background-color: rgb(221, 221, 206);
-  }
-  .btn:hover {
- background-color: #819b41;
-
 }
