@@ -1,4 +1,4 @@
-/* Reset */
+/* ============ RESET ============ */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Page background */
+/* ============ PAGE BACKGROUND ============ */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -15,33 +15,89 @@ body {
   align-items: center;
 }
 
-/* Dashboard container */
+/* ============ MAIN CARD ============ */
 .container {
   background: #ffffff;
   width: 90%;
-  max-width: 420px;
-  padding: 30px;
+  max-width: 460px;
+  padding: 32px;
   border-radius: 14px;
   text-align: center;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Title */
+/* ============ HEADINGS ============ */
 .container h2 {
   color: #2a5298;
   margin-bottom: 12px;
 }
 
-/* Subtitle text */
 .container p {
   color: #555;
   font-size: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
-/* Primary button */
+/* Active job heading */
+.container h3 {
+  text-align: left;
+  font-size: 15px;
+  color: #2a5298;
+  margin-bottom: 10px;
+}
+
+/* ============ ACTIVE JOB CARD ============ */
+#activeJob {
+  background: #f7f9fc;
+  border-left: 5px solid #16a34a;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+#activeJob h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+#activeJob p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* View location button */
+#activeJob button {
+  width: 100%;
+  padding: 10px;
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#activeJob button:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+/* ============ DIVIDER ============ */
+hr {
+  border: none;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 20px 0;
+}
+
+/* ============ PRIMARY BUTTON ============ */
 .btn {
-  padding: 12px 22px;
+  width: 100%;
+  padding: 13px;
   background: #2a5298;
   color: #ffffff;
   border: none;
@@ -49,23 +105,15 @@ body {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-/* Button hover */
 .btn:hover {
   background: #1e3c72;
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
-/* Button active */
-.btn:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive */
+/* ============ RESPONSIVE ============ */
 @media (max-width: 480px) {
   .container {
     padding: 24px;
